@@ -2,10 +2,19 @@
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="service_fabric_playgroundType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="WebApi_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="WorkerActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="WorkerActorService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="WorkerActorService_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="WorkerStatusActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="WorkerStatusActorService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="WorkerStatusActorService_TargetReplicaSetSize" DefaultValue="3" />
   </Parameters>
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
        should match the Name and Version attributes of the ServiceManifest element defined in the 
        ServiceManifest.xml file. -->
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="WorkerActorPkg" ServiceManifestVersion="1.0.0" />
+  </ServiceManifestImport>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="WebApiPkg" ServiceManifestVersion="1.0.0" />
     <ConfigOverrides />
@@ -20,6 +29,16 @@
       <StatelessService ServiceTypeName="WebApiType" InstanceCount="[WebApi_InstanceCount]">
         <SingletonPartition />
       </StatelessService>
+    </Service>
+    <Service Name="WorkerActorService" GeneratedIdRef="3f8cd2ee-2a5b-4f75-ac33-1195b9790d3a|Volatile">
+      <StatefulService ServiceTypeName="WorkerActorServiceType" TargetReplicaSetSize="[WorkerActorService_TargetReplicaSetSize]" MinReplicaSetSize="[WorkerActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[WorkerActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="WorkerStatusActorService" GeneratedIdRef="15bea3c5-5ca7-4b60-a222-f053ac84e6d2|Volatile">
+      <StatefulService ServiceTypeName="WorkerStatusActorServiceType" TargetReplicaSetSize="[WorkerStatusActorService_TargetReplicaSetSize]" MinReplicaSetSize="[WorkerStatusActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[WorkerStatusActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
     </Service>
   </DefaultServices>
 </ApplicationManifest>

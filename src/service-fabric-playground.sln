@@ -7,6 +7,16 @@ Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "service_fabric_playground",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{77F2DCC1-10A4-4347-84EA-29E906EB324E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-Fabric", "01-Fabric", "{EFC9FA31-8C3E-41BD-87DF-EA5749459B32}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-Web", "02-Web", "{07FC2638-55CB-44E5-B33C-2D94A43C0E65}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03-WorkerActor", "03-WorkerActor", "{C9F68940-167B-4BED-B2CD-958482A584CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerActor", "WorkerActor\WorkerActor.csproj", "{49AF1931-1B64-4273-AE33-FDD5E9843C6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerActor.Interfaces", "WorkerActor.Interfaces\WorkerActor.Interfaces.csproj", "{E6ECB9C3-3E05-4176-91A0-A821F6B97E30}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -23,8 +33,22 @@ Global
 		{77F2DCC1-10A4-4347-84EA-29E906EB324E}.Debug|x64.Build.0 = Debug|x64
 		{77F2DCC1-10A4-4347-84EA-29E906EB324E}.Release|x64.ActiveCfg = Release|x64
 		{77F2DCC1-10A4-4347-84EA-29E906EB324E}.Release|x64.Build.0 = Release|x64
+		{49AF1931-1B64-4273-AE33-FDD5E9843C6B}.Debug|x64.ActiveCfg = Debug|x64
+		{49AF1931-1B64-4273-AE33-FDD5E9843C6B}.Debug|x64.Build.0 = Debug|x64
+		{49AF1931-1B64-4273-AE33-FDD5E9843C6B}.Release|x64.ActiveCfg = Release|x64
+		{49AF1931-1B64-4273-AE33-FDD5E9843C6B}.Release|x64.Build.0 = Release|x64
+		{E6ECB9C3-3E05-4176-91A0-A821F6B97E30}.Debug|x64.ActiveCfg = Debug|x64
+		{E6ECB9C3-3E05-4176-91A0-A821F6B97E30}.Debug|x64.Build.0 = Debug|x64
+		{E6ECB9C3-3E05-4176-91A0-A821F6B97E30}.Release|x64.ActiveCfg = Release|x64
+		{E6ECB9C3-3E05-4176-91A0-A821F6B97E30}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C9548D8E-7735-4F22-8981-C7F9960C0D70} = {EFC9FA31-8C3E-41BD-87DF-EA5749459B32}
+		{77F2DCC1-10A4-4347-84EA-29E906EB324E} = {07FC2638-55CB-44E5-B33C-2D94A43C0E65}
+		{49AF1931-1B64-4273-AE33-FDD5E9843C6B} = {C9F68940-167B-4BED-B2CD-958482A584CD}
+		{E6ECB9C3-3E05-4176-91A0-A821F6B97E30} = {C9F68940-167B-4BED-B2CD-958482A584CD}
 	EndGlobalSection
 EndGlobal
